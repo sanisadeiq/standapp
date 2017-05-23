@@ -37,4 +37,29 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = \Hash::make($value);
     }
+
+
+    // user can have many tasks
+    public function Tasks()
+    {
+        $this->hasMany('App/Task');
+    }
+
+    // user can have many Iceboxes
+    public function Icebox()
+    {
+        $this->hasMany('App/Icebox');
+    }
+
+    //user can have many notes
+    public function Note()
+    {
+        $this->hasMany('App\Note');
+    }
+
+    //a user can have many settings
+    public function Settings()
+    {
+        $this->hasMany('App\Settings');
+    }
 }

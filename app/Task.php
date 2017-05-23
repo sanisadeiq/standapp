@@ -18,4 +18,21 @@ class Task extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+   //every task belongs to a user
+    public function User(){
+    	$this->belongsTo('App/User', 'user_id');
+    }
+
+    //tasks can have many attachments
+    public function Attachments()
+    {
+        $this->hasMany('App\Attachment');
+    }
+
+    //tasks have many notes
+    public function Note()
+    {
+    	$this->hasMany('App\Note');
+    }
 }
